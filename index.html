@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="28WORKS — Preparación, rendimiento, mecánica y detailing.">
+<title>28WORKS | Performance & Automotive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#070707;--panel:#101010;--text:#f5f5f5;--muted:#a4a4a4;--line:#242424;--accent:#a8ff00;--max:1180px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
+a{color:inherit;text-decoration:none}
+.container{width:min(92%,var(--max));margin:auto}
+header{position:fixed;z-index:20;top:0;left:0;right:0;background:rgba(7,7,7,.72);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.07)}
+.nav{height:76px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:25px;font-weight:900;letter-spacing:-1.5px}.logo-img{display:flex;align-items:center;width:178px;height:52px;overflow:visible}.logo-img img{display:block;width:100%;height:auto;object-fit:contain}
+.logo span{color:var(--accent)}
+nav{display:flex;gap:30px;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+nav a{opacity:.8;transition:.2s} nav a:hover{opacity:1;color:var(--accent)}
+.menu{display:none;background:none;border:0;color:white;font-size:25px}
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;background:
+linear-gradient(90deg,rgba(0,0,0,.93) 0%,rgba(0,0,0,.65) 48%,rgba(0,0,0,.22) 100%),
+radial-gradient(circle at 75% 45%,rgba(232,255,0,.10),transparent 28%),
+linear-gradient(135deg,#151515,#050505 60%)}
+.hero:before{content:"";position:absolute;inset:0;opacity:.28;background-image:linear-gradient(rgba(168,255,0,.11) 1px,transparent 1px),linear-gradient(90deg,rgba(168,255,0,.11) 1px,transparent 1px);background-size:48px 48px;mask-image:linear-gradient(90deg,black,transparent 78%)}
+.hero:after{content:"";position:absolute;inset:auto -10% -25% 35%;height:65%;background:linear-gradient(135deg,transparent,rgba(168,255,0,.08));transform:skewY(-8deg)}
+.hero-content{position:relative;z-index:2;padding-top:70px;max-width:780px}.hero-logo{width:min(560px,88vw);margin-bottom:34px}.hero-logo img{display:block;width:100%;height:auto;filter:drop-shadow(0 0 22px rgba(168,255,0,.14))}
+.kicker{font-size:12px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:18px}
+h1{font-size:clamp(55px,9vw,120px);line-height:.86;letter-spacing:-.07em;text-transform:uppercase;font-weight:900}
+h1 span{display:block;color:transparent;-webkit-text-stroke:1px #fff}
+.hero p{max-width:620px;color:#c7c7c7;margin:28px 0;font-size:17px}
+.buttons{display:flex;gap:12px;flex-wrap:wrap}
+.btn{padding:14px 22px;border:1px solid var(--accent);font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;transition:.25s}
+.btn.primary{background:var(--accent);color:#050505}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(168,255,0,.12)}
+.btn.secondary{border-color:#444}
+section{padding:105px 0}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:42px}
+.eyebrow{color:var(--accent);font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;margin-bottom:12px}
+h2{font-size:clamp(34px,5vw,62px);line-height:.95;letter-spacing:-.055em;text-transform:uppercase}
+.section-head p{max-width:440px;color:var(--muted);font-size:14px}
+.services{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.service{background:var(--panel);padding:35px;min-height:245px;transition:.25s}
+.service:hover{background:#151515}
+.number{color:#666;font-size:12px;font-weight:800}
+.service h3{font-size:25px;margin:55px 0 10px;text-transform:uppercase;letter-spacing:-.03em}
+.service p{color:var(--muted);font-size:14px;max-width:450px}
+.cta{border:1px solid #2d2d2d;padding:65px;position:relative;overflow:hidden;background:linear-gradient(110deg,#111,#090909)}
+.cta:after{content:"28";position:absolute;right:-20px;bottom:-65px;font-size:250px;font-weight:900;color:rgba(255,255,255,.025)}
+.cta h2{max-width:720px}.cta p{color:var(--muted);max-width:600px;margin:18px 0 28px}
+footer{border-top:1px solid var(--line);padding:35px 0;color:#777;font-size:12px}
+.footer{display:flex;justify-content:space-between;gap:20px}
+@media(max-width:760px){
+ nav{display:none}.menu{display:block}
+ .nav.open nav{display:flex;position:absolute;top:76px;left:0;right:0;background:#090909;padding:25px;flex-direction:column;gap:20px;border-bottom:1px solid var(--line)}
+ .nav{height:76px}.logo-img{width:148px;height:42px}.hero{min-height:850px;background-position:62% center}.hero-content{padding-top:100px}
+ .section-head,.about,.engineering-inner{display:block}.section-head p{margin-top:20px}
+ .services{grid-template-columns:1fr}.engineering{background:linear-gradient(90deg,rgba(5,6,5,.98),rgba(5,6,5,.74)),url("https://images.unsplash.com/photo-1727525425212-4fc04db0d83d?auto=format&fit=crop&fm=jpg&q=82&w=2200") center/cover fixed;position:relative;overflow:hidden}.engineering:after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(168,255,0,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(168,255,0,.08) 1px,transparent 1px);background-size:55px 55px;opacity:.35;pointer-events:none}.engineering-inner{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center}.blueprint{border:1px solid rgba(168,255,0,.22);background:rgba(4,8,4,.64);backdrop-filter:blur(5px);padding:30px;position:relative;min-height:390px}.blueprint:before{content:"ENGINEERING / 28W";position:absolute;top:14px;left:16px;color:#667064;font-size:9px;letter-spacing:.18em}.diagram{height:100%;min-height:325px;position:relative;border:1px dashed rgba(168,255,0,.25);overflow:hidden}.diagram:before,.diagram:after{content:"";position:absolute;border:1px solid rgba(168,255,0,.38);border-radius:50%;left:50%;top:50%;transform:translate(-50%,-50%)}.diagram:before{width:210px;height:210px}.diagram:after{width:110px;height:110px}.cross-h,.cross-v{position:absolute;background:rgba(168,255,0,.22)}.cross-h{height:1px;left:7%;right:7%;top:50%}.cross-v{width:1px;top:7%;bottom:7%;left:50%}.measure{position:absolute;color:#79906e;font-size:9px;letter-spacing:.12em}.m1{top:16%;left:8%}.m2{right:8%;bottom:16%}.m3{left:8%;bottom:9%}.specs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px}.spec{border-top:1px solid rgba(168,255,0,.2);padding-top:10px;color:#9da89a;font-size:10px;text-transform:uppercase;letter-spacing:.1em}.spec strong{display:block;color:#e9f3e5;font-size:14px;margin-top:4px}.work-grid{display:block}.work{height:260px;margin-bottom:12px}.work:first-child{height:320px}
+ .blueprint{margin-top:35px}.stats{margin-top:30px}.cta{padding:35px 25px}.footer{display:block}.footer div+div{margin-top:10px}
+}
+
+.electronics{position:relative;overflow:hidden;background:
+ radial-gradient(circle at 85% 15%,rgba(185,255,0,.08),transparent 25%),
+ linear-gradient(180deg,#090909,#0b0d0a)}
+.electronics:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.24;
+ background-image:linear-gradient(rgba(190,255,0,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(190,255,0,.08) 1px,transparent 1px);
+ background-size:55px 55px;mask-image:linear-gradient(to bottom,black,transparent 92%)}
+.electronics-intro{display:grid;grid-template-columns:.85fr 1.15fr;gap:45px;align-items:center;margin-bottom:42px}
+.ecu-graphic{height:260px;border:1px solid #263021;background:#0a0d09;position:relative;overflow:hidden}
+.ecu-graphic:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(190,255,0,.09),transparent 42%)}
+.ecu-chip{position:absolute;z-index:2;left:50%;top:50%;transform:translate(-50%,-50%);width:130px;height:95px;border:1px solid #baff00;background:#11150e;display:flex;align-items:center;justify-content:center;flex-direction:column;font-size:17px;font-weight:900;letter-spacing:.08em;box-shadow:0 0 45px rgba(190,255,0,.08)}
+.ecu-chip span{color:#baff00;font-size:11px;margin-top:5px}
+.circuit{position:absolute;height:1px;background:#87b62d;opacity:.65}
+.circuit:after{content:"";position:absolute;width:6px;height:6px;border:1px solid #baff00;border-radius:50%;top:-3px;background:#0a0d09}
+.c1{width:30%;left:5%;top:36%}.c1:after{right:0}.c2{width:25%;right:5%;top:64%}.c2:after{left:0}
+.c3{width:18%;left:18%;top:67%}.c3:after{right:0}.c4{width:20%;right:18%;top:34%}.c4:after{left:0}
+.tech-label{position:absolute;color:#738064;font-size:9px;letter-spacing:.16em;font-weight:700}.tl1{left:8%;top:20%}.tl2{right:8%;top:21%}.tl3{right:8%;bottom:18%}
+.electronics-copy{color:#aeb7ab;font-size:15px;max-width:650px}.electronics-copy p+p{margin-top:16px}.electronics-copy strong{color:#fff}.mini-tag{display:inline-block;border:1px solid #354329;color:#baff00;padding:7px 10px;font-size:9px;font-weight:800;letter-spacing:.16em;margin-bottom:20px}
+.electronics-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:12px}
+.electronic-card{position:relative;border:1px solid #252d22;background:#0e100d;padding:30px;min-height:250px;transition:.25s}
+.electronic-card:hover{border-color:#5d7d32;transform:translateY(-3px)}
+.electronic-card.featured{background:linear-gradient(145deg,#11160d,#0c0d0c)}
+.card-number{position:absolute;right:20px;top:20px;color:#596151;font-size:10px;font-weight:800}
+.card-icon{font-size:26px;color:#baff00;height:34px}
+.electronic-card h3{text-transform:uppercase;font-size:22px;letter-spacing:-.03em;margin:35px 0 10px}.electronic-card p{color:#90988b;font-size:13px}.electronic-card strong{color:#d8e5ce}
+.vagcom-panel{display:grid;grid-template-columns:.7fr 1.3fr;border:1px solid #2b3327;background:#0d0f0c;min-height:330px}
+.vagcom-heading{position:relative;padding:40px;border-right:1px solid #252d22;background:linear-gradient(145deg,#12170f,#0c0d0c)}
+.vagcom-heading h3{font-size:38px;line-height:.95;text-transform:uppercase;letter-spacing:-.05em}.vagcom-code{position:absolute;bottom:30px;left:40px;color:#61705a;font-size:9px;letter-spacing:.16em}
+.vagcom-copy{padding:40px}.vagcom-copy>p{color:#aeb7ab;font-size:14px;max-width:700px;margin-bottom:30px}.vag-items{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.vag-items article{border-top:1px solid #34402f;padding-top:15px}.vag-items span{color:#baff00;font-size:10px;font-weight:800}.vag-items h4{font-size:15px;text-transform:uppercase;margin:8px 0}.vag-items p{color:#858d81;font-size:12px}.vag-items strong{color:#cdd9c4}
+@media(max-width:760px){.electronics-intro{grid-template-columns:1fr}.electronics-grid{grid-template-columns:1fr}.vagcom-panel{grid-template-columns:1fr}.vagcom-heading{border-right:0;border-bottom:1px solid #252d22}.vag-items{grid-template-columns:1fr}.vagcom-heading h3{font-size:32px}.vagcom-code{position:static;display:block;margin-top:25px}}
+
+.preparations{position:relative;overflow:hidden;background:
+ radial-gradient(circle at 12% 85%,rgba(168,255,0,.07),transparent 30%),
+ linear-gradient(180deg,#0b0d0a,#070707)}
+.prep-lead{display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:start;border:1px solid #252d22;background:#0d0f0c;padding:30px 34px;margin-bottom:12px}
+.prep-lead p{color:#aeb7ab;font-size:15px;max-width:760px}
+.prep-lead strong{color:#fff}
+.prep-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.prep-card{position:relative;border:1px solid #252d22;background:#0e100d;padding:34px;min-height:270px;transition:.25s}
+.prep-card:hover{border-color:#5d7d32;transform:translateY(-3px)}
+.prep-card.featured{background:linear-gradient(145deg,#11160d,#0c0d0c)}
+.prep-card .card-number{position:absolute;right:22px;top:22px;color:#596151;font-size:10px;font-weight:800}
+.prep-card .card-icon{font-size:26px;color:#baff00;height:34px}
+.prep-card h3{text-transform:uppercase;font-size:24px;letter-spacing:-.03em;margin:35px 0 12px}
+.prep-card p{color:#90988b;font-size:14px;max-width:520px}
+.prep-card p+p{margin-top:10px}
+@media(max-width:760px){.prep-lead{grid-template-columns:1fr;padding:24px}.prep-grid{grid-template-columns:1fr}.prep-card{min-height:0;padding:28px}}
+
+.detailing{position:relative;overflow:hidden;background:
+ radial-gradient(circle at 88% 20%,rgba(168,255,0,.07),transparent 28%),
+ linear-gradient(180deg,#070707,#0b0d0a)}
+.detail-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.detail-card{position:relative;border:1px solid #252d22;background:#0e100d;padding:36px;min-height:300px;transition:.25s}
+.detail-card:hover{border-color:#5d7d32;transform:translateY(-3px)}
+.detail-card.featured{background:linear-gradient(145deg,#11160d,#0c0d0c)}
+.detail-card .card-number{position:absolute;right:22px;top:22px;color:#596151;font-size:10px;font-weight:800}
+.detail-card .card-icon{font-size:26px;color:#baff00;height:34px}
+.detail-card h3{text-transform:uppercase;font-size:24px;letter-spacing:-.03em;margin:35px 0 12px}
+.detail-card p{color:#90988b;font-size:14px;max-width:520px}
+.detail-card p+p{margin-top:10px}
+.detail-tagline{display:inline-block;margin-top:20px;color:#baff00;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.homologations{position:relative;overflow:hidden;background:#070707}
+.homo-panel{display:grid;grid-template-columns:.8fr 1.2fr;border:1px solid #2b3327;background:#0d0f0c}
+.homo-heading{position:relative;padding:44px;border-right:1px solid #252d22;background:linear-gradient(145deg,#12170f,#0c0d0c)}
+.homo-heading h3{font-size:34px;line-height:1;text-transform:uppercase;letter-spacing:-.05em}
+.homo-code{position:absolute;bottom:30px;left:44px;color:#61705a;font-size:9px;letter-spacing:.16em}
+.homo-copy{padding:44px}
+.homo-copy p{color:#aeb7ab;font-size:15px;max-width:640px}
+.homo-copy p+p{margin-top:16px}
+.homo-copy p:last-child{color:#fff;border-top:1px solid #34402f;padding-top:20px;margin-top:24px}
+@media(max-width:760px){.detail-grid{grid-template-columns:1fr}.detail-card{min-height:0;padding:28px}.homo-panel{grid-template-columns:1fr}.homo-heading{border-right:0;border-bottom:1px solid #252d22;padding:30px}.homo-heading h3{font-size:28px}.homo-code{position:static;display:block;margin-top:25px}.homo-copy{padding:30px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="container nav" id="nav">
+    <a class="logo-img" href="#"><img src="assets/28works-logo.png" alt="28WORKS"></a>
+    <nav>
+      <a href="#servicios">Servicios</a><a href="#electronicas">Electrónicas</a><a href="#preparaciones">Preparaciones</a><a href="#detailing">Detailing</a><a href="#homologaciones">Homologaciones</a><a href="#contacto">Contacto</a>
+    </nav>
+    <button class="menu" aria-label="Abrir menú" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+ <div class="container hero-content">
+   <div class="hero-logo"><img src="assets/28works-logo.png" alt="28WORKS"></div><div class="kicker">Performance · Automotive · 28WORKS</div>
+   <h1>Built to<br><span>stand out.</span></h1>
+   <p>Preparación, rendimiento y estética automotriz. Convertimos cada proyecto en algo único, cuidando cada detalle.</p>
+   <div class="buttons"><a class="btn primary" href="#servicios">Ver servicios</a><a class="btn secondary" href="#contacto">Contactar</a></div>
+ </div>
+</section>
+<div class="tech-strip"><div class="container tech-track"><span>Mechanical systems</span><span>Performance</span><span>Diagnostics</span><span>ECU calibration</span><span>Precision engineering</span><span>Automotive</span></div></div>
+<section id="servicios">
+ <div class="container">
+  <div class="section-head"><div><div class="eyebrow">01 / Servicios</div><h2>Todo para<br>tu proyecto.</h2></div><p>Una base preparada para presentar tus servicios de forma clara y profesional. Los textos se pueden sustituir fácilmente.</p></div>
+  <div class="services">
+   <article class="service"><div class="number">01</div><h3>Reprogramación</h3><p>Optimización electrónica y puesta a punto orientada al rendimiento y la respuesta del vehículo.</p></article>
+   <article class="service"><div class="number">02</div><h3>Preparaciones</h3><p>Proyectos personalizados, mejoras de rendimiento y componentes seleccionados para cada vehículo.</p></article>
+   <article class="service"><div class="number">03</div><h3>Detailing</h3><p>Tratamientos estéticos y cuidado profesional para recuperar y potenciar el aspecto del vehículo.</p></article>
+   <article class="service"><div class="number">04</div><h3>Homologaciones</h3><p>Asesoramiento y gestión para que las modificaciones de tu proyecto estén correctamente documentadas.</p></article>
+  </div>
+ </div>
+</section>
+
+
+
+<section id="electronicas" class="electronics">
+ <div class="container">
+  <div class="section-head">
+   <div>
+    <div class="eyebrow">02 / Electrónicas</div>
+    <h2>Electrónica<br>hecha a medida.</h2>
+   </div>
+   <p>Reprogramación, diagnosis y codificación adaptadas a cada vehículo y a la preparación que lleve.</p>
+  </div>
+
+  <div class="electronics-intro">
+   <div class="ecu-graphic">
+    <div class="ecu-chip">28W<br><span>ECU</span></div>
+    <div class="circuit c1"></div><div class="circuit c2"></div>
+    <div class="circuit c3"></div><div class="circuit c4"></div>
+    <span class="tech-label tl1">ECU / CAL</span>
+    <span class="tech-label tl2">MAP 01</span>
+    <span class="tech-label tl3">+ PERFORMANCE</span>
+   </div>
+   <div class="electronics-copy">
+    <div class="mini-tag">CALIBRACIÓN · DIAGNOSIS · CODIFICACIÓN</div>
+    <p>Nosotros trabajamos las <strong>reprogramaciones de forma adaptada a cada vehículo</strong> y a la preparación que lleve, buscando sacar el máximo partido al conjunto.</p>
+    <p>Desde una <strong>Stage 1</strong> para mejorar las prestaciones sin complicarse demasiado, hasta configuraciones más completas para proyectos que ya van un paso más allá.</p>
+   </div>
+  </div>
+
+  <div class="electronics-grid">
+   <article class="electronic-card featured">
+    <div class="card-number">01</div>
+    <div class="card-icon">⌁</div>
+    <h3>Multimapa</h3>
+    <p>Con el <strong>multimapa</strong> podemos disponer de diferentes configuraciones en el mismo coche y seleccionar la que quieras utilizar según el momento.</p>
+   </article>
+
+   <article class="electronic-card">
+    <div class="card-number">02</div>
+    <div class="card-icon">◈</div>
+    <h3>Antirrobo</h3>
+    <p>Añadimos funciones de <strong>antirrobo mediante electrónica</strong> para añadir más seguridad a tu coche.</p>
+   </article>
+
+   <article class="electronic-card">
+    <div class="card-number">03</div>
+    <div class="card-icon">≋</div>
+    <h3>Pops &amp; Bangs</h3>
+    <p>Configuramos <strong>pops &amp; bangs</strong>, siempre teniendo en cuenta la configuración del coche y el uso que se le vaya a dar.</p>
+   </article>
+  </div>
+
+  <div class="vagcom-panel">
+   <div class="vagcom-heading">
+    <div class="eyebrow">VAG-COM</div>
+    <h3>Diagnosis.<br>Funciones.<br>Configuración.</h3>
+    <span class="vagcom-code">VAG / 28W / 01</span>
+   </div>
+   <div class="vagcom-copy">
+    <p>Trabajamos con <strong>VAGCOM</strong> para realizar diagnosis y acceder a diferentes funciones y configuraciones de los vehículos del grupo VAG.</p>
+    <div class="vag-items">
+     <article><span>01</span><h4>Diagnosis</h4><p>Realizamos <strong>diagnosis electrónica</strong> para detectar errores y comprobar qué está pasando antes de empezar a cambiar piezas a lo loco.</p></article>
+     <article><span>02</span><h4>Funciones ocultas</h4><p>Muchos vehículos VAG tienen funciones y opciones que no vienen activadas de fábrica. Podemos <strong>activar y configurar funciones ocultas</strong> disponibles en tu vehículo, siempre dependiendo del modelo, año y equipamiento.</p></article>
+     <article><span>03</span><h4>Codificación y configuración</h4><p>También podemos realizar diferentes <strong>codificaciones y ajustes mediante VAG-COM</strong>, adaptando determinadas funciones electrónicas a las necesidades de cada coche.</p></article>
+    </div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section id="preparaciones" class="preparations">
+ <div class="container">
+  <div class="section-head">
+   <div>
+    <div class="eyebrow">03 / Preparaciones</div>
+    <h2>Preparaciones</h2>
+   </div>
+   <p>No todos los coches buscan lo mismo ni todas las preparaciones necesitan el mismo camino, por eso estudiamos cada proyecto desde la base y buscamos la configuración que mejor encaje con lo que quieres conseguir.</p>
+  </div>
+
+  <div class="prep-lead">
+   <div class="mini-tag" style="margin-bottom:0">MOTORES DIÉSEL</div>
+   <p>Trabajamos especialmente con <strong>motores diésel</strong>, desde mejoras concretas hasta proyectos completos, siempre buscando un buen equilibrio entre prestaciones, fiabilidad y funcionamiento.</p>
+  </div>
+
+  <div class="prep-grid">
+   <article class="prep-card featured">
+    <div class="card-number">01</div>
+    <div class="card-icon">◎</div>
+    <h3>Kit turbo</h3>
+    <p>Desde un cambio de turbo hasta una preparación completa alrededor de él.</p>
+    <p>Montamos y adaptamos turbos, tuberías de intercooler, admisiones y demás componentes necesarios para conseguir que el conjunto funcione como debe.</p>
+   </article>
+
+   <article class="prep-card">
+    <div class="card-number">02</div>
+    <div class="card-icon">≡</div>
+    <h3>Suspensiones</h3>
+    <p>Trabajamos en la suspensión para mejorar el comportamiento del coche y adaptarlo al uso que vaya a tener, ya sea calle, conducción deportiva o un proyecto más enfocado al rendimiento. En caso de ser amortiguadores regulables, se estudia y se planifica un setup a gusto del conductor.</p>
+   </article>
+
+   <article class="prep-card">
+    <div class="card-number">03</div>
+    <div class="card-icon">⇄</div>
+    <h3>Swaps</h3>
+    <p>Realizamos swaps adaptando todos los elementos necesarios para conseguir que el nuevo conjunto funcione correctamente.</p>
+    <p>Motor, electrónica, alimentación, transmisión y todos los detalles que hacen falta para convertir una idea en un proyecto real.</p>
+   </article>
+
+   <article class="prep-card featured">
+    <div class="card-number">04</div>
+    <div class="card-icon">⌁</div>
+    <h3>Sistema de inyección</h3>
+    <p>Trabajamos con sistemas de inyección y alimentación, adaptándolos a las necesidades de cada preparación para conseguir que el motor tenga el combustible necesario para funcionar correctamente.</p>
+   </article>
+  </div>
+ </div>
+</section>
+
+<section id="detailing" class="detailing">
+ <div class="container">
+  <div class="section-head">
+   <div>
+    <div class="eyebrow">04 / Detailing</div>
+    <h2>Detailing</h2>
+   </div>
+   <p>También nos encargamos de la parte estética del coche. Trabajamos el exterior para recuperar, cuidar y proteger su acabado, siempre adaptándonos al estado de cada vehículo y a lo que busque el cliente.</p>
+  </div>
+
+  <div class="detail-grid">
+   <article class="detail-card featured">
+    <div class="card-number">01</div>
+    <div class="card-icon">✦</div>
+    <h3>Pulido de llantas</h3>
+    <p>Con el tiempo la pintura pierde brillo, aparecen pequeñas marcas y otros defectos que hacen que el coche se vea peor.</p>
+    <p>Con el pulido buscamos recuperar el brillo y mejorar el acabado de la pintura, trabajando de forma progresiva según el estado del vehículo.</p>
+    <span class="detail-tagline">Menos marcas. Más brillo. Mejor acabado.</span>
+   </article>
+
+   <article class="detail-card">
+    <div class="card-number">02</div>
+    <div class="card-icon">◇</div>
+    <h3>Tratamiento cerámico</h3>
+    <p>Además de aportar brillo y profundidad al acabado, crea una capa de protección que ayuda a mantener la pintura más limpia y protegida frente a suciedad y contaminantes.</p>
+    <p>El tratamiento se aplica preparando previamente la superficie para conseguir una correcta adherencia y un buen resultado.</p>
+   </article>
+  </div>
+ </div>
+</section>
+
+<section id="homologaciones" class="homologations">
+ <div class="container">
+  <div class="section-head">
+   <div>
+    <div class="eyebrow">05 / Homologaciones</div>
+    <h2>Homologaciones</h2>
+   </div>
+  </div>
+
+  <div class="homo-panel">
+   <div class="homo-heading">
+    <div class="eyebrow">LEGALIZACIÓN</div>
+    <h3>Nosotros te ayudamos a dejarlo todo en regla.</h3>
+    <span class="homo-code">HOM / 28W / 01</span>
+   </div>
+   <div class="homo-copy">
+    <p>Si has hecho modificaciones en tu coche y quieres legalizarlas, nos encargamos de la homologación y legalización de reformas para que puedas disfrutar de tu proyecto sin complicaciones.</p>
+    <p>También gestionamos matriculaciones de vehículos importados. Así que si estás pensando en bajarte un coche de otro país, podemos ayudarte con todo el proceso para ponerlo en circulación en España.</p>
+    <p>Ya sea una preparación que quieres homologar o un coche que acabas de importar, cuéntanos qué tienes entre manos y vemos cómo hacerlo.</p>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section id="contacto">
+ <div class="container">
+  <div class="cta"><div class="eyebrow">06 / Contacto</div><h2>¿Tienes un proyecto en mente?</h2><p>En esta zona añadiremos posteriormente tu teléfono, WhatsApp, Instagram, dirección, horario y formulario de contacto.</p><div class="buttons"><a class="btn primary" href="https://wa.me/34608341051" target="_blank" rel="noopener">WhatsApp</a><a class="btn secondary" href="https://www.instagram.com/28.works/" target="_blank" rel="noopener">Instagram</a></div></div>
+ </div>
+</section>
+</main>
+
+<footer><div class="container footer"><div>© 2026 28WORKS. Todos los derechos reservados.</div><div>Performance · Automotive · Detailing</div></div></footer>
+<script>
+const links=document.querySelectorAll('nav a');links.forEach(a=>a.addEventListener('click',()=>document.getElementById('nav').classList.remove('open')));
+</script>
+</body>
+</html>
